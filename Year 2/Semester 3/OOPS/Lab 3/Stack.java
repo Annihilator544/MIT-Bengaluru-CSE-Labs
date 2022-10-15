@@ -1,6 +1,6 @@
 import java.util.*;
 public class Stack {
-    int arr[]=new int[5];
+    static int arr[]=new int[5];
  //  arr[0]=0;arr[1]=0;arr[2]=4;
        static int top=-1;
     static Scanner sc =new Scanner(System.in);
@@ -14,7 +14,6 @@ public class Stack {
         i=sc.nextInt();
         ++top;
         arr[top]=i;
-        System.out.println(arr[top]+"---");
     }
     void pop(){
         if(top==-1){
@@ -24,7 +23,9 @@ public class Stack {
         top--;
     }
     void display(){
-        System.out.println(arr[0]);
+        for (int i=0;i<=top;i++){
+            System.out.print(arr[i]+ "\t");
+        }
 
     }
     public static void main(String[] args){
