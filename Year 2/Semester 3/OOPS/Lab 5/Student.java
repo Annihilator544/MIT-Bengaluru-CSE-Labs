@@ -1,274 +1,181 @@
 import java.util.*;
-import java.text.*;
 
-class Student 
-{
-    
-    int regNo;
-    String fullName;
-    GregorianCalendar dateJoined;
-    short semester;
-    float gpa;
-    float cgpa;
-    
-    Student() 
-    {
-        regNo = 0;
-        fullName = "";
-        dateJoined = new GregorianCalendar();
-        semester = 0;
-        gpa = 0.f;
-        cgpa = 0.f;
-    }
-    
-    Student(Student s) 
-    {
-        this.regNo = s.regNo;
-        this.fullName = s.fullName;
-        this.dateJoined = s.dateJoined;
-        this.semester = s.semester;
-        this.gpa = s.gpa;
-        this.cgpa = s.cgpa;
-    }
-    
-    public void display() 
-    {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy"); 
-        System.out.println("\n\t       Name | " + fullName + 
-                           "\n\t     Reg No | " + regNo + 
-                           "\n\tDate Joined | " + dateFormat.format(dateJoined.getTime()) +
-                           "\n\t   Semester | " + semester + 
-                           "\n\t        GPA | " + gpa + 
-                           "\n\t       CGPA | " + cgpa + 
-                           "\n");
-    }
-    
-    public void input() 
-    {
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.print("\n\tEnter Name: ");
-        fullName = sc.nextLine();
-        
-        System.out.print("\tEnter Date Joined (yyyy/mm/dd): ");
-        dateJoined = new GregorianCalendar(sc.nextInt(), sc.nextInt() - 1, sc.nextInt());
-        
-        System.out.print("\tEnter Semester: ");
-        semester = sc.nextShort();
-        
-        System.out.print("\tEnter GPA: ");
-        gpa = sc.nextFloat();
-        
-        System.out.print("\tEnter CGPA: ");
-        cgpa = sc.nextFloat();
-        
-        System.out.println();
-    }
-}
-
-class Students 
-{
-    
-    Student students[];
-    int size;
-    
-    public Students(int size) 
-    {
-        this.size = size;
-        this.students = new Student[size];
-    }
-    
-    public void inputAll() 
-    {
-        for (int i = 0; i < size; ++i) 
-        {
-            System.out.println("\t\tStudent " + (i+1) + " :");
-            students[i] = new Student();
-            students[i].input();
-            
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yy");
-            String regNo = dateFormat.format(students[i].dateJoined.getTime());
-            regNo += String.format( "%02d", i+1);
-            students[i].regNo = Integer.parseInt(regNo);
-        }
-    }
-    
-    public void displayAll() 
-    {
-        for (Student stud: students)
-        {
-            stud.display();
-        }
-    }
-    
-    public void list(String str) 
-    {
-        for (Student stud: students) 
-        {
-            if (stud.fullName.contains(str))
-            {
-                stud.display();
-            }
-        }
-    }
-    
-    public void list(char ch) 
-    {
-        for (Student stud: students) 
-        {
-            if (stud.fullName.indexOf(ch) == 0)
-            {
-                stud.display();
-            }
-        }
-    }
-    
-    public void shortenName() 
-    {
-        for (Student stud: students) 
-        {
-            String newName = "";
-            String lastName = "";
-            StringTokenizer st = new StringTokenizer (stud.fullName);
-            
-            while (st.hasMoreTokens())
-            {
-                lastName = st.nextToken();
-                newName += lastName.charAt(0) + ". ";
-            }
-            
-            newName = newName.substring(0, newName.length() - 3) + lastName;
-            stud.fullName = newName;
-        }
-    }
-    
-    public void sort(String wrt) 
-    {
-        for (int i = 0; i < size - 1; ++i) 
-        {
-            int min = i;
-            for (int j = i + 1; j < size; ++j) 
-            {
-                if (wrt.equals("semester") && (students[j].semester > students[min].semester))
-                {
-                    min = j;
-                }
-                
-                if (wrt.equals("cgpa") && (students[j].cgpa > students[min].cgpa))
-                {
-                    min = j;
-                }
-                
-                if (wrt.equals("fullName") && (students[j].fullName.compareTo(students[min].fullName)) < 0)
-                {
-                    min = j;
-                }
-            }
-            
-            if (min != i) 
-            {
-                Student temp = students[i];
-                students[i] = students[min];
-                students[min] = temp;
-            }
-        }
-    }
-}
-
-public class StudentTest 
-{
-    
-    public static void main (String args[])
-     {
-        Scanner sc = new Scanner(System.in);
-        
-        System.out.print("\n\tEnter the number of records: ");
-        int size = sc.nextInt();
-        
-        Students students = new Students (size);
-        students.inputAll();
+import javax.swing.SingleSelectionModel;
+public class Student {
+	 static int choice,i =0;
+	static Scanner sc= new Scanner(System.in);
+	static int Regnumb=2200;
+	int Regnum;
+	static Student stu[] = new Student[100];
+	String Name;
+	Short sem;
+	float GPA;
+	float CGPA;
+	Student(){
+		Name="nil";
+		sem=1;
+		GPA=(float)0.0;
+		CGPA=(float)0.0;
+		Regnum=++Regnumb;
+	}
+	Student(String a,short i,float j,float k){
+		Name=a;
+		sem=i;
+		GPA=j;
+		CGPA=k;
+		Regnum=++Regnumb;
+	}
+	void Display() {
+		System.out.println("Registration Number : "+ Regnum);
+		System.out.println("Name : "+ Name);
+		System.out.println("Semester : "+ sem);
+		System.out.println("GPA : "+ GPA);
+		System.out.println("CGPA : "+ CGPA);
+	}
+	void Read() {
+		System.out.print("Name : ");
 		sc.nextLine();
-        
-        char choice;
-        
-        do 
-        {
-            System.out.print("\n\t1. Display Records." + 
-							"\n\t2. Sort wrt Name." +
-							"\n\t3. Sort wrt Semester (Desceding)." +
-							"\n\t4. Sort wrt CGPA (Descending)." +
-							"\n\t5. List all Students whose name begins with a character." +
-							"\n\t6. List all Students whose name contains a string." +
-							"\n\t7. Change the names of all students to shortened form." +
-							"\nAnything else for exit." +
-							"\n\n\t Enter choice: ");
-            choice = sc.next().charAt(0);
-			sc.nextLine();
-            
-            switch (choice) 
-            {
-                case '1': 
+		Name=sc.nextLine();
+		System.out.println("Semester : ");
+		sem=sc.nextShort();
+		System.out.println("GPA : ");
+		GPA=sc.nextFloat();
+		System.out.println("CGPA : ");
+		CGPA=sc.nextFloat();
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.print("1. New Student\n2. Change Student Data\n3. Display Student Info\n4. Sort by Sem\n5. Sort by CGPA\n6. Sort by Name\n7.Search name by character\n8. Search by Middle Name\n9.Shorten Name\n");
+		do {
+			System.out.println("Enter Choice : ");
+			choice=sc.nextInt();
+			switch(choice) {
+			case 1:
+				stu[i]=new Student();
+				stu[i].Read();
+				i++;
+				break;
+			case 2:
+				System.out.println("Enter Student registration Number : ");
+				int j=sc.nextInt();
+				for(int k=0;k<i;k++) {
+					if(stu[k].Regnum==j) {
+						stu[k].Read();
+					}
+				}
+				break;
+			case 3:
+				System.out.println("Enter Student registration Number : ");
+				j=sc.nextInt();
+				for(int k=0;k<i;k++) {
+					if(stu[k].Regnum==j) {
+						stu[k].Display();
+					}
+				}
+				break;
+			case 4:
+			
+			for(int l=1;l<=8;l++){
+				for (int k=0;k<i;k++){
+					if(stu[k].sem==l){
+						stu[k].Display();
+					}
+				}
+			}
+				break;
+			case 5:
+				float ar[]=new float[100];
+				for (int k=0;k<i;k++){
+					ar[k]=stu[k].CGPA;
+				}
+				for(int k=0;k<i;k++){
+					for(int t=k+1;t<i;t++){
+						if(ar[k]<ar[t]){
+							float temp=ar[k];
+							ar[k]=ar[t];
+							ar[t]=temp;
+						}
+					}
+				}
+				for(int k=0;k<i;k++){
+					for(int t=0;t<i;t++){
+						if(ar[k]==stu[t].CGPA){
+							stu[t].Display();
+						}
+					}
+				}
+				break;
+			case 6:
+			String names[]=new String[100];
+			for (int k=0;k<i;k++){
+				names[k]=stu[k].Name;
+			}
+			String temp;
+			for (int n = 0; n < i; n++) {
+				for (int p = n + 1; p < i; p++) {
+				   
+					if (names[n].compareTo(names[p]) > 0) {
+						temp = names[n];
+						names[n] = names[p];
+						names[p] = temp;
+					}
+				}
+			}
+			for(int k=0;k<i;k++){
+				for(int t=0;t<i;t++){
+					if(names[k]==stu[t].Name){
+						stu[t].Display();
+					}
+				}
+			}
+			break;
+			case 7:
+			System.out.println("Enter Character to Search : ");
+			char c=sc.next().charAt(0);
+			for(int k=0;k<i;k++){
+				if(c==stu[k].Name.charAt(0)){
+					stu[k].Display();
+				}
+			}
+			break;
+			case 8:
+				System.out.println("Enter String To search : ");
+				String s=sc.next();
+				for(int k=0;k<i;k++){
+				int index = stu[k].Name.indexOf(s);
+				if(index>=0){
+					stu[k].Display();
+				}
+				}
+				break;
+			case 9:
+			for(int k=0;k<i;k++){
+			int len = stu[k].Name.length();
+			stu[k].Name = stu[k].Name.trim();
+			String str1 = "";
+			for (int i = 0; i < len; i++) {
+			   char ch = stu[k].Name.charAt(i);
+			   if (ch != ' ') {
+				  str1 = str1 + ch;
+			   } else {
+				  str1 = "";
+			   }
+			}
+			String str2 = "";
+			for (int p = 0; p< str1.length(); p++) {
+			   if (p == 0)
+				  str2 = str2 + Character.toUpperCase(str1.charAt(0));
+			   else
+				  str2 = str2 + Character.toLowerCase(str1.charAt(p));
+			}
+			stu[k].Name=str2;
+		}
+			break;
 
-                students.displayAll();
-                
-                break;
-                
-                case '2': 
+			}
+		}
+		while(choice!=0);
+	}
 
-                students.sort("fullName");
-                System.out.println("\nSotred wrt Name.\n");
-                students.displayAll();
-                
-                break;
-                
-                case '3': 
-
-                students.sort("semester");
-                System.out.println("\nSotred wrt Semester.\n");
-                students.displayAll();
-                
-                break;
-                
-                case '4': 
-
-                students.sort("cgpa");
-                System.out.println("\nSotred wrt CGPA.\n");
-                students.displayAll();
-                
-                break;
-                
-                case '5': 
-
-                System.out.print("\n\tEnter the character: ");
-                char ch = sc.next().charAt(0);
-                students.list(ch);
-				System.out.println("\n\tAll the student names starting with \' " + ch + "\' : \n");
-				students.displayAll();
-                
-                break;
-                
-                case '6': 
-
-                System.out.print("\n\tEnter the string: ");
-                String subs = sc.nextLine();
-                students.list(subs);
-				System.out.println("\n\tAll the student names containing \' " + subs + "\' : \n");
-				students.displayAll();
-                
-                break;
-                
-                case '7': 
-
-                students.shortenName();
-                System.out.println("\n\tShortened Name.\n");
-                students.displayAll();
-                
-                break;
-                
-                default: 
-                
-                break;
-            }
-        }while ("1234567".indexOf(choice) != -1);
-    }
 }
