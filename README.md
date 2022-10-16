@@ -9,6 +9,6 @@ This Project was made for the second year students of MIT bengaluru.
 # Follow Me
 |Name      |Link                                                                        |
 |----------|----------------------------------------------------------------------------|
-|Linkedin  |[Linkedin](https://www.linkedin.com/in/aditya-sharma0/ "Linkedin Dashboard")|
-|----------|----------------------------------------------------------------------------|
-|Instagram |[Instagram](https://www.instagram.com/ehmxce/?next=%2F)                     |
+|Linkedin  |[Linkedin Dashboard](https://www.linkedin.com/in/aditya-sharma0/ "Linkedin")|
+|:--------:|:--------------------------------------------------------------------------:|
+|Instagram |[Instagram Profile](https://www.instagram.com/ehmxce/?next=%2F)             |
