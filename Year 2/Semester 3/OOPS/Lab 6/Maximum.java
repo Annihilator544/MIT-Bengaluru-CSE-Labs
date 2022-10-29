@@ -1,5 +1,5 @@
 class Maximum {
-    void max(int i,int j,int k){
+    static void max(int i,int j,int k){
         if(i>j&&i>k)
             System.out.println(i+" is the greatest number");
         else if(j>i&&j>k)
@@ -7,7 +7,7 @@ class Maximum {
         else if(k>j&&k>i)
             System.out.println(k+" is the greatest number");
     }
-    void max(float i,float j,float k){
+    static void max(float i,float j,float k){
         if(i>j&&i>k)
             System.out.println(i+" is the greatest number");
         else if(j>i&&j>k)
@@ -15,10 +15,10 @@ class Maximum {
         else if(k>j&&k>i)
             System.out.println(k+" is the greatest number");
     }
-    void max(int arr[]){
+   static void max(int arr[]){
         Array.stream(arr).max().getasInt();
     }
-    void max(int arr[][]){
+    static void max(int arr[][]){
         int m=arr[0][0];
         for (int i =0;i<arr.length;i++){
             for (int j =0;i<arr.length;j++){
@@ -28,5 +28,10 @@ class Maximum {
 
         }
         System.out.println(max);
+    }
+    public static void main(String args[]){
+        max((float)2.3,(float)4.5,(float)6.7);
+        max(2,6,8);
+
     }
 }
