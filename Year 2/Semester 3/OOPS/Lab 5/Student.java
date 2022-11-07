@@ -1,6 +1,5 @@
 import java.util.*;
 
-import javax.swing.SingleSelectionModel;
 public class Student {
 	 static int choice,i =0;
 	static Scanner sc= new Scanner(System.in);
@@ -159,6 +158,7 @@ public class Student {
 			   if (ch != ' ') {
 				  str1 = str1 + ch;
 			   } else {
+				  System.out.print(Character.toUpperCase(str1.charAt(0)) + ". ");
 				  str1 = "";
 			   }
 			}
@@ -169,7 +169,7 @@ public class Student {
 			   else
 				  str2 = str2 + Character.toLowerCase(str1.charAt(p));
 			}
-			stu[k].Name=str2;
+			System.out.println(str2);
 		}
 			break;
 
