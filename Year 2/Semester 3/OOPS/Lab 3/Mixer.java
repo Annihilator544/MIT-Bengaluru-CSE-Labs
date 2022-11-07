@@ -10,9 +10,9 @@ class Mixer{
         int arr2[]=new int[y];
         int arr3[]=new int[x+y];
         System.out.println("Enter First Array : ");
-        for(int i=0;i<x;i++){
+        for(int i=0;i<x;i++)
            arr3[i]= arr1[i]=sc.nextInt();
-        }
+        
         System.out.println("Enter Second Array : ");
         for(int i=0;i<y;i++){
             arr3[x+i]=arr2[i]=sc.nextInt();
