@@ -20,7 +20,7 @@ class Bank
         System.out.println("Enter Account Number ");
         AccNum=sc.nextLong();
         System.out.println("Enter Account Type ");
-        Type=sc.nextLine();
+        Type=sc.next();
         System.out.println("Enter Balance ");
         Balance=sc.nextInt();
     }
