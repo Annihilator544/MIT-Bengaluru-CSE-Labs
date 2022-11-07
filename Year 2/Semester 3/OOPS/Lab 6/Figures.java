@@ -7,19 +7,19 @@ abstract class Figure{
 }
 class rectangle extends Figure{
     int area(){
-        System.out.print("Printing From Rectangle : ");
+        System.out.println("Printing From Rectangle : "+i*j);
         return(i*j);
     }
 }
 class triangle extends Figure{
     int area(){
-        System.out.print("Printing From triangle : ");
+        System.out.println("Printing From triangle : "+i*j/2);
         return(i*j/2);
     }
 }
 class square extends Figure{
     int area(){
-        System.out.print("Printing From square : ");
+        System.out.println("Printing From square : "+i*i);
         return(i*i);
     }
 }
