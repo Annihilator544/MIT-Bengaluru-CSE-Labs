@@ -1,0 +1,12 @@
+Dependencies for Project 'int_adc', Target 'Target 1': (DO NOT MODIFY !)
+F (.\INT_ADC.c)(0x5A811FF4)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork -I C:\Keil4\ARM\RV31\INC-I C:\Keil4\ARM\CMSIS\Include-I C:\Keil4\ARM\Inc\NXP\LPC17xx-o .\int_adc.o --omf_browse .\int_adc.crf --depend .\int_adc.d)
+I (C:\Keil4\ARM\Inc\NXP\LPC17xx\LPC17xx.h)(0x532C1734)
+I (C:\Keil4\ARM\CMSIS\Include\core_cm3.h)(0x532C1AEA)
+I (C:\Keil4\ARM\ARMCC\include\stdint.h)(0x51C7E87C)
+I (C:\Keil4\ARM\CMSIS\Include\core_cmInstr.h)(0x532C1AEA)
+I (C:\Keil4\ARM\CMSIS\Include\core_cmFunc.h)(0x532C1AEA)
+I (C:\Keil4\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h)(0x532C1734)
+I (lcd.h)(0x543373D4)
+I (C:\Keil4\ARM\ARMCC\include\stdio.h)(0x51C7E87C)
+F (.\start.lib)(0x5A5DDD18)()
+F (.\lcd.h)(0x543373D4)()

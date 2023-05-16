@@ -1,0 +1,7 @@
+--cpu Cortex-M3
+".\int_adc.o"
+".\start.lib"
+--strict --scatter ".\int_adc.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\int_adc.map" -o .\int_adc.axf
