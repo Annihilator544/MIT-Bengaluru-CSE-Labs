@@ -1,0 +1,2 @@
+/*Write a client program to send a manually crafted HTTP request packet to a Web Server
+and display all fields received in HTTP Response at client Side.*/
