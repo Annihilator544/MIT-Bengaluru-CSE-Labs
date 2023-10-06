@@ -1,35 +1,32 @@
-// Make the necessary includes and set up the variables:
 #include<stdio.h>
-#include<string.h>
-#include<sys/types.h>
+#include<fcntl.h>
+#include<stdlib.h>
 #include<sys/socket.h>
+#include<sys/types.h>
 #include<netinet/in.h>
-#include <arpa/inet.h>
-#include <unistd.h>
-#define PORTNO 10200
+#include<arpa/inet.h>
+#include<unistd.h>
 int main()
 {
-int sockfd,newsockfd,portno,clilen,n=1;
-struct sockaddr_in seraddr,cliaddr;
-int i,value;
-// create an unnamed socket for the server
-sockfd = socket(AF_INET,SOCK_STREAM,0);
-//Name the socket
-seraddr.sin_family = AF_INET;
-seraddr.sin_addr.s_addr = inet_addr("172.20.16.37");// **
-seraddr.sin_port = htons(PORTNO);
-bind(sockfd,(struct sockaddr *)&seraddr,sizeof(seraddr));
-//Create a connection queue and wait for clients
-listen(sockfd,5);
-while (1) {
-char buf[256];
-printf("server waiting");
-//Accept a connection
-clilen = sizeof(clilen);
-newsockfd=accept(sockfd,(struct sockaddr *)&cliaddr,&clilen);
-//Read and write to client on client_sockfd (Logic for problem mentioned here)
-n = read(newsockfd,buf,sizeof(buf));
-printf(" \nMessage from Client %s \n",buf);
-n = write(newsockfd,buf,sizeof(buf));
+int sd;
+char buf[25];
+struct sockaddr_in sadd,cadd;
+//Create a UDP socket
+sd=socket(AF_INET,SOCK_DGRAM,0);
+//Construct the address for use with sendto/recvfrom... */
+sadd.sin_family=AF_INET;
+sadd.sin_addr.s_addr=inet_addr("10.19.15.141");//**
+sadd.sin_port=htons(9704);
+int result=bind(sd,(struct sockaddr *)&sadd,sizeof(sadd));
+int len=sizeof(cadd);
+while(1)
+{
+int m=recvfrom(sd,buf,sizeof(buf),0,(struct sockaddr *)&cadd,&len);
+printf("the message recieved from client\n");
+puts(buf);
+printf("enter message to be sent to client\n");
+gets(buf);
+int n=sendto(sd,buf,sizeof(buf),0,(struct sockaddr *)&cadd,len);
 }
+return 0;
 }
