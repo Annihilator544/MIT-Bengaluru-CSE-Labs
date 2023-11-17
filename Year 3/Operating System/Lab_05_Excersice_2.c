@@ -1,61 +1,34 @@
-#include<semaphore.h>
-#include<stdio.h>
-#include<stdlib.h>
-#include<unistd.h>
-#include<pthread.h>
-sem_t x,y;
-pthread_t tid;
-pthread_t writerthreads[100],readerthreads[100];
-int readercount = 0;
-
-void *reader(void* param)
-{
-    sem_wait(&x);
-    readercount++;
-    if(readercount==1)
-        sem_wait(&y);
-    sem_post(&x);
-    printf("%d reader is inside\n",readercount);
-    usleep(3);
-    sem_wait(&x);
-    readercount--;
-    if(readercount==0)
-    {
-        sem_post(&y);
-    }
-    sem_post(&x);
-    printf("%d Reader is leaving\n",readercount+1);
-    return NULL;
-}
-
-void *writer(void* param)
-{
-    printf("Writer is trying to enter\n");
-    sem_wait(&y);
-    printf("Writer has entered\n");
-    sem_post(&y);
-    printf("Writer is leaving\n");
-    return NULL;
-}
-
-int main()
-{
-    int n2,i;
-    printf("Enter the number of readers:");
-    scanf("%d",&n2);
-    printf("\n");
-    int n1[n2];
-    sem_init(&x,0,1);
-    sem_init(&y,0,1);
-    for(i=0;i<n2;i++)
-    {
-        pthread_create(&writerthreads[i],NULL,reader,NULL);
-        pthread_create(&readerthreads[i],NULL,writer,NULL);
-    }
-    for(i=0;i<n2;i++)
-    {
-        pthread_join(writerthreads[i],NULL);
-        pthread_join(readerthreads[i],NULL);
-    }
-
-}
+#include<stdio.h>  
+#include<stdlib.h>  
+#include<pthread.h>  
+void* summation(void* param)  
+{ 
+int* arr = (int*)param;  
+int sum = 0;  
+int n = arr[0];  
+for(int i = 1;i <= n;i++) 
+{ 
+if(arr[i] > 0) 
+sum += arr[i]; 
+}  
+return (void*)sum;  
+}  
+int main(int argc, char const *argv[])  
+{ 
+int n;  
+printf("Enter the no. of numbers : \n");  
+scanf("%d",&n);  
+int* arr = (int*)malloc((n+1)*sizeof(int));  
+arr[0] = n; 
+printf("Enter the numbers : \n");  
+for(int i= 1;i <= n;i++) 
+{ 
+scanf("%d",&arr[i]); 
+} 
+int answer = 0;  
+pthread_t thread;  
+pthread_create(&thread,0,&summation,(void*)arr);  
+pthread_join(thread,(void**)&answer);  
+printf("Summation of non-negative numbers = %d\n",answer);  
+return 0;  
+} 

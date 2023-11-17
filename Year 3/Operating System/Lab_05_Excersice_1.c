@@ -1,61 +1,32 @@
-#include<semaphore.h>
-#include<stdio.h>
-#include<stdlib.h>
-#include<unistd.h>
-#include<pthread.h>
-sem_t x,y;
-pthread_t tid;
-pthread_t writerthreads[100],readerthreads[100];
-int readercount = 0;
+#include<stdio.h> 
+#include<stdlib.h> 
+#include<pthread.h> 
+void* generate_fibonacci(void* param)  
+{ 
 
-void *reader(void* param)
-{
-    sem_wait(&x);
-    readercount++;
-    if(readercount==1)
-        sem_wait(&y);
-    sem_post(&x);
-    printf("%d reader is inside\n",readercount);
-    usleep(3);
-    sem_wait(&x);
-    readercount--;
-    if(readercount==0)
-    {
-        sem_post(&y);
-    }
-    sem_post(&x);
-    printf("%d Reader is leaving\n",readercount+1);
-    return NULL;
+int* arr = (int*)param; 
+int n = arr[0]; 
+arr[1] = 0; 
+arr[2] = 1; 
+for(int i = 3;i <= n;i++)  
+{ 
+    arr[i] = arr[i-1] + arr[i-2];
+} 
+ 
+return NULL; 
 }
-
-void *writer(void* param)
-{
-    printf("Writer is trying to enter\n");
-    sem_wait(&y);
-    printf("Writer has entered\n");
-    sem_post(&y);
-    printf("Writer is leaving\n");
-    return NULL;
-}
-
-int main()
-{
-    int n2,i;
-    printf("Enter the number of readers:");
-    scanf("%d",&n2);
-    printf("\n");
-    int n1[n2];
-    sem_init(&x,0,1);
-    sem_init(&y,0,1);
-    for(i=0;i<n2;i++)
-    {
-        pthread_create(&writerthreads[i],NULL,reader,NULL);
-        pthread_create(&readerthreads[i],NULL,writer,NULL);
-    }
-    for(i=0;i<n2;i++)
-    {
-        pthread_join(writerthreads[i],NULL);
-        pthread_join(readerthreads[i],NULL);
-    }
-
+int main(int argc, char const *argv[]) 
+{ 
+int n; 
+printf("Enter no of Fibonacci numbers : \n"); 
+scanf("%d",&n); 
+int* arr = (int*)malloc((n+1)*sizeof(int)); 
+arr[0] = n; 
+pthread_t thread; 
+pthread_create(&thread,0,&generate_fibonacci,(void*)arr); 
+pthread_join(thread,0); 
+for(int i = 1;i <= n;i++) 
+printf("%d ",arr[i]); 
+printf("\n"); 
+return 0; 
 }
