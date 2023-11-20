@@ -1,6 +1,6 @@
 # MIT-Bengaluru-CSE-Labs
 # Description
-This Project was made for the second year students of MIT bengaluru.
+This Project was made for the students of MIT bengaluru.
 
 # Project Details
 * **Name** - MIT Bengaluru CSE Labs
