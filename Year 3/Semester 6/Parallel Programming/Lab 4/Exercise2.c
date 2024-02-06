@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
 
 	Error_Handler(error_code);
 
-	float val = 1 + pow(((rank + 0.5)/(size - 1)),2);
+	float val = 1 + ((rank + 0.5)/(size - 1))*((rank + 0.5)/(size - 1));
 	float final = 4 / (val * (size - 1));
 
 	MPI_Reduce(&final,&ans,1,MPI_FLOAT,MPI_SUM,0,MPI_COMM_WORLD);
