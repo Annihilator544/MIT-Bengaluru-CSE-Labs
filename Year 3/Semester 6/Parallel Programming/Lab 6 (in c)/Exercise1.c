@@ -82,6 +82,8 @@ printf("\n");
     ret = clEnqueueReadBuffer(command_queue, mem_output, CL_TRUE, 0,
                               N * strlen(str) * sizeof(char), output_string, 0, NULL, NULL);
 
+// Output the result
+   // printf("Output String: %s\n", output_string);
 
     // Clean up
     ret = clFlush(command_queue);
