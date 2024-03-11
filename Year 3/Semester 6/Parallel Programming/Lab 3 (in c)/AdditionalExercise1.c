@@ -1,54 +1,62 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <mpi.h>
+#include <stdlib.h>
 
 int main(int argc, char *argv[]) {
-    int rank, size, N;
-    char input_word[100];
-    char output_word[100];
-
+    int rank, size;
+    int M, N;
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
     MPI_Comm_size(MPI_COMM_WORLD, &size);
-
-    if (rank == 0) {
-        printf("Enter a word: ");
-        scanf("%s", input_word);
-        N = strlen(input_word);
+    
+    if(rank == 0) {
+        printf("Enter the value of M: ");
+        scanf("%d", &M);
+        N = size;
     }
 
-    // Broadcast the length of the word to all processes
+    MPI_Bcast(&M, 1, MPI_INT, 0, MPI_COMM_WORLD);
     MPI_Bcast(&N, 1, MPI_INT, 0, MPI_COMM_WORLD);
 
-    // Scatter the input word to all processes
-    MPI_Bcast(input_word, N, MPI_CHAR, 0, MPI_COMM_WORLD);
+    int *data = (int *)malloc(M * N * sizeof(int));
 
-    // Calculate the start index and length for each process
-    int start_index = rank * (N * (N + 1) / 2);
-    int length = (N * (N + 1) / 2) - (rank * (N * (N - 1) / 2));
+    if(rank == 0) {
+        printf("Enter %d * %d elements:\n", N, M);
+        for(int i = 0; i < M * N; i++)
+            scanf("%d", &data[i]);
+    }
 
-    // Construct the output word according to the pattern
-    int pos = 0;
-    for (int i = 0; i < N; i++) {
-        for (int j = 0; j <= i; j++) {
-            output_word[start_index + pos++] = input_word[i];
+    MPI_Bcast(data, M * N, MPI_INT, 0, MPI_COMM_WORLD);
+
+    int *result = (int *)malloc(M * sizeof(int));
+
+    // Compute squares, cubes, etc. based on process rank
+    for(int i = 0; i < M; i++) {
+	result[i] = data[rank * M + i];
+	for(int j=0;j<rank+1;j++){
+        	result[i] *= data[rank * M + i];}
+    }
+
+    int *final_result = NULL;
+    if(rank == 0)
+        final_result = (int *)malloc(M * N * sizeof(int));
+
+    MPI_Gather(result, M, MPI_INT, final_result, M, MPI_INT, 0, MPI_COMM_WORLD);
+
+    if(rank == 0) {
+        printf("Results:\n");
+        for(int i = 0; i < M * N; i++) {
+            if(i % M == 0)
+                printf("\n");
+            printf("%d ", final_result[i]);
         }
+        printf("\n");
     }
-    output_word[start_index + length] = '\0';
 
-    // Gather all output words in the root process
-    char *gathered_output = NULL;
-    if (rank == 0) {
-        gathered_output = (char *)malloc((N * (N + 1) / 2 + size) * sizeof(char));
-    }
-    MPI_Gather(output_word, length + 1, MPI_CHAR, gathered_output, length + 1, MPI_CHAR, 0, MPI_COMM_WORLD);
-
-    // Display the result in the root process
-    if (rank == 0) {
-        printf("Output: %s\n", gathered_output);
-        free(gathered_output);
-    }
+    free(data);
+    free(result);
+    if(rank == 0)
+        free(final_result);
 
     MPI_Finalize();
     return 0;
