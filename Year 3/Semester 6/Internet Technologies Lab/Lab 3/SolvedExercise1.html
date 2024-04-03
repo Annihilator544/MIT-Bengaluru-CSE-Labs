@@ -1,0 +1,123 @@
+<!--1.	Write a program that provides a template for anstudent information form with Bootstrap styling, making it visually appealing and responsive across different devices. The additional buttons suggest that the form be part of a larger application with CRUD (Create, Read, Update, Delete) functionalities.-->
+<html>
+<head>
+<body>
+ 
+<form>
+    <table>
+        <tr>
+            <td>
+                <label for="sname">Employee Name</label>
+            </td>
+            <td>
+                <input type="text" id="sname" name="Student_name">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="semail">Employee Email</label>
+            </td>
+            <td>
+                <input type="text" id="semail" name="Student_mail">
+                <button type="button">Check</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="age">Age</label>
+            </td>
+            <td>
+                <input type="text" name="s-age" id="age" size="2" maxlength="2">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Country</label>
+            </td>
+            <td>
+                <input type="text" value="India" name="country" disabled>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                    <label for="pass">Employee_No</label>
+            </td>
+            <td>
+                    <input type="registeration_no" id="rno">
+            </td>
+        </tr>
+        
+        
+        <tr>
+            <td>
+                <label>Salary structure</label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" checked> Fixed pay
+                </label>
+                <label>
+                    <input type="checkbox"> Variable pay
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Gender</label>
+            </td>
+            <td>
+                <label>
+                    <input type="radio" value="f" name="gender"> Female</label>
+                    <label>
+                    <input value="m" type="radio" name="gender"> Male</label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                    <label for="city">Base location</label>
+            </td>
+            <td>
+                    <select id="city" name="city">
+                        <option disabled selected>--Choose City--</option>
+                            <optgroup label="SELECT">
+                                <option>New Delhi</option>
+                                <option>Mumbai</option>
+                                <option>Channai</option>
+                                <option>Hydrabad</option>
+                                <option>Gurgaon</option>
+                            	</option>Bangaluru</option>
+                            </optgroup>
+                    </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Address</label>
+            </td>
+            <td>
+                <textarea rows="4" cols="40"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Submit">
+                <input type="reset">
+            
+</td>
+        </tr>
+        <tr>
+            <td>
+                <button type = "button">Search</button>
+                <button type = "button">Update</button>
+                <button type = "button">Read</button>
+                <button type = "button">Create</button>
+                <button type = "button">Delete</button>
+            </td>
+        </tr>
+    </table>
+</form>
+ 
+</body>
+</head>
+</html>

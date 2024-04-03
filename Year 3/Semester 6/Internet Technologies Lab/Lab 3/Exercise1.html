@@ -1,0 +1,85 @@
+<!--styling.
+•	The third column contains a condensed table with a header row and a single data row displaying the first name, last name, and email.
+Bootstrap Components:
+•	The program utilizes Bootstrap's stylesheet and JavaScript libraries to enhance styling and interactive features.
+•	It includes the necessary Bootstrap classes for grid layout, buttons, input groups, and tables.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Web Page</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Top Section -->
+        <div class="row mt-3">
+            <div class="col">
+                <h2>TOP</h2>
+                <div class="btn-group" role="group" aria-label="Branches">
+                    <button type="button" class="btn btn-primary">CSE</button>
+                    <button type="button" class="btn btn-primary">CCE</button>
+                    <button type="button" class="btn btn-primary">IT</button>
+                    <button type="button" class="btn btn-primary">ECE</button>
+                    <button type="button" class="btn btn-primary">EEE</button>
+                    <button type="button" class="btn btn-primary">E&I</button>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Section -->
+        <div class="row mt-3">
+            <div class="col-sm-4">
+                <h2>BOTTOM</h2>
+                <p>CSE Lab</p>
+                <div class="btn-group-vertical">
+                    <button type="button" class="btn btn-secondary">DS Lab</button>
+                    <button type="button" class="btn btn-secondary">IT Lab</button>
+                    <button type="button" class="btn btn-secondary">PP Lab</button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <form>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter password">
+                    </div>
+                    <div class="form-group">
+                        <label for="additional-info">Additional Information</label>
+                        <textarea class="form-control" id="additional-info" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>john@example.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS (optional, only if you need dropdowns, modals, etc.) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

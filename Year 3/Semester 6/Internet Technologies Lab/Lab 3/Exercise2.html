@@ -1,0 +1,165 @@
+<!--2.	Write a program that creates a responsive web page using the Bootstrap framework, presenting a carousel with three distinct slides. The first slide details the online class timetable for the VIth Semester CSE Section B, showcasing a table with scheduled subjects for each day of the week, highlighting specific time slots with a distinct background color. The second slide provides the LAB timetable, displaying a table with details of lab sessions for each day, including lab names and subjects. Again, the background color indicates occupied time slots. The third slide furnishes a faculty list, presenting subject names, subject codes, and faculty names for various courses. Users can navigate between slides using the carousel controls. The overall design aims to offer a clear and organized representation of the semester's schedule, combining Bootstrap's styling and responsiveness for an enhanced user experience.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIth Semester CSE Section B Timetable</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <!-- Slide 1: Online Class Timetable -->
+            <div class="carousel-item active">
+                <div class="container">
+                    <h2>Online Class Timetable</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time Slot</th>
+                                <th>Subject</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Insert your timetable data here -->
+                            <!-- Sample Faculty List Data -->
+                            <tr>
+                                <td>CSE101</td>
+                                <td>Data Structures and Algorithms</td>
+                                <td>Dr. John Smith</td>
+                            </tr>
+                            <tr>
+                                <td>CSE102</td>
+                                <td>Database Management Systems</td>
+                                <td>Prof. Emily Johnson</td>
+                            </tr>
+                            <tr>
+                                <td>CSE103</td>
+                                <td>Operating Systems</td>
+                                <td>Dr. Michael Brown</td>
+                            </tr>
+                            <tr>
+                                <td>CSE104</td>
+                                <td>Computer Networks</td>
+                                <td>Prof. Sarah Wilson</td>
+                            </tr>
+                            <tr>
+                                <td>CSE105</td>
+                                <td>Software Engineering</td>
+                                <td>Dr. David Jones</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Slide 2: Lab Timetable -->
+            <div class="carousel-item">
+                <div class="container">
+                    <h2>Lab Timetable</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Lab</th>
+                                <th>Subject</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Insert your lab timetable data here -->
+                            <!-- Sample Faculty List Data -->
+                            <tr>
+                                <td>CSE101</td>
+                                <td>Data Structures and Algorithms</td>
+                                <td>Dr. John Smith</td>
+                            </tr>
+                            <tr>
+                                <td>CSE102</td>
+                                <td>Database Management Systems</td>
+                                <td>Prof. Emily Johnson</td>
+                            </tr>
+                            <tr>
+                                <td>CSE103</td>
+                                <td>Operating Systems</td>
+                                <td>Dr. Michael Brown</td>
+                            </tr>
+                            <tr>
+                                <td>CSE104</td>
+                                <td>Computer Networks</td>
+                                <td>Prof. Sarah Wilson</td>
+                            </tr>
+                            <tr>
+                                <td>CSE105</td>
+                                <td>Software Engineering</td>
+                                <td>Dr. David Jones</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- Slide 3: Faculty List -->
+            <div class="carousel-item">
+                <div class="container">
+                    <h2>Faculty List</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Subject Code</th>
+                                <th>Subject Name</th>
+                                <th>Faculty</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           <!-- Sample Faculty List Data -->
+                            <tr>
+                                <td>CSE101</td>
+                                <td>Data Structures and Algorithms</td>
+                                <td>Dr. John Smith</td>
+                            </tr>
+                            <tr>
+                                <td>CSE102</td>
+                                <td>Database Management Systems</td>
+                                <td>Prof. Emily Johnson</td>
+                            </tr>
+                            <tr>
+                                <td>CSE103</td>
+                                <td>Operating Systems</td>
+                                <td>Dr. Michael Brown</td>
+                            </tr>
+                            <tr>
+                                <td>CSE104</td>
+                                <td>Computer Networks</td>
+                                <td>Prof. Sarah Wilson</td>
+                            </tr>
+                            <tr>
+                                <td>CSE105</td>
+                                <td>Software Engineering</td>
+                                <td>Dr. David Jones</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

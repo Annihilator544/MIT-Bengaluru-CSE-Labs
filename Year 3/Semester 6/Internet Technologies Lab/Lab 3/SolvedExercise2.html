@@ -1,0 +1,163 @@
+<!--2.	Write a program in bootstrap that has the following elements:
+Table Section:
+
+Displays a table with three rows, each representing an employee.
+Columns include Employee ID, Employee Name, and Employee Salary.
+Employee entries: 
+ID: 1, Name: Mr.X, Salary: Rs.75000
+ID: 2, Name: Mr.Y, Salary: Rs.60000
+ID: 3, Name: Ms.Z, Salary: Rs.80000
+Create New Employee Form:
+A form with fields for entering Employee ID, Employee Name, and Employee Salary.
+Submit button with the label "CREATE."
+Update Employee Details Form:
+A form with a dropdown to select an employee for updating.
+Fields for entering new Employee ID, Employee Name, and Employee Salary.
+Submit button with the label "UPDATE."
+Delete Employee Form:
+A form with a dropdown to select an employee for deletion.
+Submit button with the label "DELETE."
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <title>Lab 2 - Question 2</title>
+  </head>
+ 
+  <body>
+ 
+    <div class="container">
+      <h3>Employee Entries : </h3>
+      <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Employee ID</th>
+          <th>Employee Name</th>
+          <th>Employee salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Mr.X</td>
+          <th>Rs.75000</th>
+        </tr>
+        
+        <tr>
+          <td>2</td>
+          <td>Mr.Y</td>
+          <th>Rs.60000</th>
+        </tr>
+        
+        <tr>
+          <td>3</td>
+          <td>Ms.Z</td>
+          <th>Rs.80000</th>
+        </tr>
+      </tbody>
+    </table>
+ 
+   
+
+
+
+
+
+ <form>
+      <legend>Create New Employee : </legend>
+      
+      <div class="form-group">
+        <label for="name">Employee ID</label>
+        <input type="number" class="form-control" id="name" placeholder="Enter Employee ID" />
+      </div>
+      
+      <div class="form-group">
+        <label for="name">Employee Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter employee name" />
+      </div>
+      
+      <div class="form-group">
+        <label for="name">Employee Salary</label>
+        <input type="number" class="form-control" id="name" placeholder="Enter Employee salary" />
+      </div>
+      <button type="submit" class="btn btn-success">CREATE</button>
+    </form>
+    
+    <hr>
+    
+    <form>
+      <legend>Update the details of the Employee : </legend>
+      
+      <div class="form-group">
+        <label for="exampleFormControlSelect2">Select the Employee to update : </label>
+        <select multiple class="form-control" id="exampleFormControlSelect2">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="name">Employee New ID</label>
+        <input type="number" class="form-control" id="name" placeholder="Enter employee ID" />
+      </div>
+      
+      <div class="form-group">
+        <label for="name">Employee New Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter Employee name" />
+      </div>
+      
+      <div class="form-group">
+        <label for="name">Employee New Salary</label>
+        <input type="number" class="form-control" id="name" placeholder="Enter employee salary" />
+      </div>
+      
+      <button type="submit" class="btn btn-info">UPDATE</button>
+    </form>
+    
+    <hr>
+    
+    
+
+
+
+<form>
+      <legend>Delete the Employee : </legend>
+      
+      <div class="form-group">
+        <label for="exampleFormControlSelect2">Select the Employee to delete : </label>
+        
+        <select multiple class="form-control" id="exampleFormControlSelect2">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-danger">DELETE</button>
+    </form>
+    </div>
+    
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+      crossorigin="anonymous"
+    />
+    
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script>
+  
+  </body>
+</html>
