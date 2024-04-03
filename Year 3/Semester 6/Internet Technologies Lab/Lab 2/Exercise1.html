@@ -1,0 +1,113 @@
+<!--1.	Create a comprehensive webpage for an e-commerce platform. The webpage should include the following elements:
+a)	Header: A navigation bar with links for Home, Products, Categories, and Contact. A search bar with a search button.
+b)	Main Content: A featured product section showcasing three products with images, names, and prices. A product category section with at least five categories displayed in a grid format.
+c)	Product Listings: A dynamic product listing section where products are loaded asynchronously using jQuery's AJAX from a JSON file. Each product card should include an image, name, price, and an "Add to Cart" button.
+d)	Shopping Cart: A side panel that displays the items in the user's shopping cart when clicked. The cart should show the product names, quantities, and total amount.
+e)	Footer: Social media links. Contact information. Copyright information.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Categories</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button type="button">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <section class="featured-products">
+            <h2>Featured Products</h2>
+            <div class="product-grid">
+                <!-- Featured Product Cards -->
+                <div class="product-card">
+                    <img src="product1.jpg" alt="Product 1">
+                    <h3>Product 1</h3>
+                    <p>$50</p>
+                </div>
+                <div class="product-card">
+                    <img src="product2.jpg" alt="Product 2">
+                    <h3>Product 2</h3>
+                    <p>$60</p>
+                </div>
+                <div class="product-card">
+                    <img src="product3.jpg" alt="Product 3">
+                    <h3>Product 3</h3>
+                    <p>$70</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-categories">
+            <h2>Product Categories</h2>
+            <div class="category-grid">
+                <!-- Product Category Cards -->
+                <div class="category-card">Category 1</div>
+                <div class="category-card">Category 2</div>
+                <div class="category-card">Category 3</div>
+                <div class="category-card">Category 4</div>
+                <div class="category-card">Category 5</div>
+            </div>
+        </section>
+
+        <!-- Product Listings (Populated using AJAX) -->
+        <section class="product-listings">
+            <h2>Products</h2>
+            <div class="product-grid" id="product-list">
+                <!-- Product Cards will be loaded dynamically here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Shopping Cart Sidebar -->
+    <aside class="shopping-cart">
+        <h2>Shopping Cart</h2>
+        <div class="cart-items">
+            <!-- Shopping Cart Items will be displayed here -->
+        </div>
+        <div class="cart-total">
+            <p>Total: $<span id="cart-total">0.00</span></p>
+            <button type="button" id="checkout-btn">Checkout</button>
+        </div>
+    </aside>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-media">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+            <div class="contact-info">
+                <p>Contact us: example@example.com</p>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 E-Commerce Platform. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
