@@ -4,7 +4,7 @@ This Project was made for the students of MIT bengaluru.
 
 # Project Details
 * **Name** - MIT Bengaluru CSE Labs
-* **Languages** - C , Java , FLEX , Python  
+* **Languages** - C , Java , FLEX , Python , HTML , CSS , JavaScript , C# 
 
 # Follow Me
 |Name      |Link                                                                        |
