@@ -1,0 +1,139 @@
+<!--1.	Design a webpage includes a button labeled "Click Me!" and features a table displaying information such as Firstname, Lastname, and Age. The webpage's structure employs HTML, and the styling is achieved through CSS. Additionally, there is a JavaScript code snippet using the jQuery library that responds to the button click by animating the left position of a container. Explain the visual effect created by clicking the button, the styling applied to the table, and any notable layout structures defined in HTML.-->
+<html> 
+<head> 
+ 
+<title>Question 1</title> 
+ 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+ 
+<script type = "text/javascript" language = "javascript"> 
+ 
+$(document).ready(function() 
+{ 
+ 
+  $(".btn").click(function() 
+  { 
+    $("div").animate({left: '0px'}); 
+ 
+  } ); 
+ 
+}); 
+ 
+</script> 
+ 
+<style type="text/css"> 
+ 
+table
+{ 
+ 
+  font-family: arial, sans-serif; 
+ 
+  border-collapse: collapse; 
+ 
+} 
+ 
+td, th 
+{ 
+ 
+  border: 1px solid #dddddd; 
+ 
+  text-align: left; 
+ 
+  padding: 8px; 
+ 
+} 
+ 
+  
+ 
+tr:nth-child(even) 
+{ 
+ 
+  background-color: #dddddd; 
+ 
+} 
+ 
+.main-container
+{ 
+ 
+  display: flex; 
+ 
+  flex-direction: column; 
+ 
+} 
+ 
+.sub-container
+{ 
+ 
+  position: relative; 
+ 
+  left: 250px; 
+ 
+} 
+ 
+</style> 
+ 
+</head> 
+ 
+<body> 
+ 
+<div class="main-container"> 
+ 
+<div class="sub-container"> 
+ 
+<table> 
+ 
+<tr style="background-color:#F0FFFF"> 
+ 
+  <th>Firstname</th> 
+ 
+  <th>Lastname</th>  
+ 
+  <th>Age</th> 
+ 
+</tr> 
+ 
+<tr style="background-color:#5F9EA0"> 
+ 
+  <td>David</td> 
+ 
+  <td>Warner</td> 
+ 
+  <td>34</td> 
+ 
+</tr> 
+ 
+  <tr style="background-color:#7FFFD4"> 
+ 
+  <td>Kane</td> 
+ 
+  <td>Williamson</td> 
+ 
+  <td>30</td> 
+ 
+</tr> 
+ 
+  <tr style="background-color:#00FFFF"> 
+ 
+  <td>Rashid</td> 
+ 
+  <td>Khan</td> 
+ 
+  <td>24</td> 
+ 
+</tr> 
+ 
+</table> 
+ 
+  <br> 
+ 
+</div> 
+ 
+<div class="btn"> 
+ 
+  <button type="button">Click Me!</button> 
+ 
+</div> 
+</div> 
+</body> 
+</html>
+
