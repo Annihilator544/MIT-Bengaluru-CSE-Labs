@@ -1,0 +1,14 @@
+<!-- templates/carinfo/car_info_form.html -->
+<form method="POST" action="{% url 'display_car_info' %}">
+    {% csrf_token %}
+    <label for="manufacturer">Car Manufacturer:</label>
+    <select name="manufacturer" id="manufacturer">
+        <option value="Toyota">Toyota</option>
+        <option value="Honda">Honda</option>
+        <option value="Ford">Ford</option>
+        <!-- Add other manufacturers as needed -->
+    </select><br><br>
+    <label for="model_name">Model Name:</label>
+    <input type="text" id="model_name" name="model_name"><br><br>
+    <input type="submit" value="Submit">
+</form>
