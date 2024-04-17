@@ -1,0 +1,14 @@
+<!-- groceryapp/templates/groceryapp/added_items.html -->
+<table border="1" style="border-collapse: collapse;">
+    <tr>
+      <th>Item Name</th>
+      <th>Price</th>
+    </tr>
+    {% for item in selected_items %}
+      <tr>
+        <td>{{ item.name }}</td>
+        <td>${{ item.price }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  

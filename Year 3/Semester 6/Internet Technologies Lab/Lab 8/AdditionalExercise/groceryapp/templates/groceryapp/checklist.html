@@ -1,0 +1,26 @@
+<!-- groceryapp/templates/groceryapp/checklist.html -->
+<form method="POST" action="{% url 'grocery_checklist' %}">
+    {% csrf_token %}
+    {% for item in items %}
+      <input type="checkbox" id="item_{{ item.id }}" name="selected_items" value="{{ item.id }}">
+      <label for="item_{{ item.id }}">{{ item.name }} - ${{ item.price }}</label><br>
+    {% endfor %}
+    <input type="submit" value="Add Item">
+  </form>
+  
+  {% if selected_items %}
+  <h2>Selected Items:</h2>
+  <table border="1" style="border-collapse: collapse;">
+    <tr>
+      <th>Item Name</th>
+      <th>Price</th>
+    </tr>
+    {% for item in selected_items %}
+      <tr>
+        <td>{{ item.name }}</td>
+        <td>${{ item.price }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+  
