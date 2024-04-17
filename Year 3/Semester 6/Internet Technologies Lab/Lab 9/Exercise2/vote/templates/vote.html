@@ -1,0 +1,11 @@
+<form method="POST" action="{% url 'vote_book' %}">
+    {% csrf_token %}
+    <p>How is the book "ASP.NET with C# by Vipul Prakashan?"</p>
+    <input type="radio" id="good" name="vote" value="good">
+    <label for="good">Good</label><br>
+    <input type="radio" id="satisfactory" name="vote" value="satisfactory">
+    <label for="satisfactory">Satisfactory</label><br>
+    <input type="radio" id="bad" name="vote" value="bad">
+    <label for="bad">Bad</label><br>
+    <input type="submit" value="Vote">
+</form>
