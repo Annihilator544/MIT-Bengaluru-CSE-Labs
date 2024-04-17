@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Hello World!</h1>
+<p>Welcome to my first Django project!</p>
+<script>
+    function handleSubmit(){
+        var num1 = document.getElementById("num1").value;
+        var num2 = document.getElementById("num2").value;
+        var result = parseInt(num1) + parseInt(num2);
+        document.getElementById("result").innerHTML = "Result: " + result;
+    
+    }
+</script>
+    <label for="num1">Enter number 1:</label>
+    <input type="number" name="num1" id="num1">
+    <br>
+    <label for="num2">Enter number 2:</label>
+    <input type="number" name="num2" id="num2">
+    <br>
+    <button onClick=handleSubmit() type="submit" value="Add">
+        Add
+    </button>
+    <br>
+    <p id="result"></p>
+
+</body>
+</html>
