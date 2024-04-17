@@ -1,0 +1,16 @@
+<!-- templates/sessionapp/firstPage.html -->
+<form method="POST" action="{% url 'first_page' %}">
+    {% csrf_token %}
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="roll">Roll:</label>
+    <input type="text" id="roll" name="roll"><br><br>
+    <label for="subject">Subjects:</label>
+    <select name="subject" id="subject">
+        <option value="Math">Math</option>
+        <option value="Science">Science</option>
+        <option value="History">History</option>
+        <!-- Add other subjects as needed -->
+    </select><br><br>
+    <input type="submit" value="Submit">
+</form>
