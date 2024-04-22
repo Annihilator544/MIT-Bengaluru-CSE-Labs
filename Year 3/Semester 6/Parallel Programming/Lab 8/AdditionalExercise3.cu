@@ -9,9 +9,10 @@ __global__ void repeatString(char *inputString, char *outputString, int stringLe
     if (tid < stringLength) {
         int count = 0;
         for(int i=0 ;i<stringLength;i++){
-            outputString[count] = inputString[stringLength-i-1];
+        for(int j=0 ;j<i+1;j++){
+            outputString[count] = inputString[i];
             count++;
-        }
+        }}
     }
 }
 
